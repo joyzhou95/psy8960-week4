@@ -9,4 +9,4 @@ wide_tbl <- separate(import_tbl, qs, into = c("q1", "q2", "q3", "q4", "q5"))
 wide_tbl[,5:9] <- sapply(wide_tbl[,5:9], as.integer)
 wide_tbl$datadate <- as.POSIXct(wide_tbl$datadate, format = "%b %d %Y, %H:%M:%S")
 wide_tbl[,5:9] <- lapply(wide_tbl[,5:9], gsub, pattern = 0, replacement = "NA")
-
+wide_tbl <- wide_tbl[wide_tbl$q2 != "NA",]
